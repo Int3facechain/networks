@@ -1,0 +1,545 @@
+{
+  "genesis_time": "2024-05-09T13:17:22.557561Z",
+  "chain_id": "int3-test-1",
+  "initial_height": "1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "5242880",
+      "max_gas": "6000000"
+    },
+    "evidence": {
+      "max_age_num_blocks": "403200",
+      "max_age_duration": "1209600000000000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {
+      "app": "1"
+    }
+  },
+  "app_hash": "",
+  "app_state": {
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      },
+      "accounts": [
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "int31rc5tuqvvfh5sngwsegdq893zu9jfj64w7rnx4u",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "int31p3drpvllz0ewcjq20ucwdr6l76rka9ep04lz4p",
+          "pub_key": null,
+          "account_number": "1",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "int31djewruqsxw9nh6fuk96hgde7zpt3gtv7rwmec4",
+          "pub_key": null,
+          "account_number": "2",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "int31dafm9d5a6j86r5lj7rh6a3n3zd7ul7mj5mc8jx",
+          "pub_key": null,
+          "account_number": "3",
+          "sequence": "0"
+        }
+      ]
+    },
+    "bank": {
+      "params": {
+        "send_enabled": [],
+        "default_send_enabled": true
+      },
+      "balances": [
+        {
+          "address": "int31p3drpvllz0ewcjq20ucwdr6l76rka9ep04lz4p",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "1000000000"
+            },
+            {
+              "denom": "uint3",
+              "amount": "1000000000"
+            }
+          ]
+        },
+        {
+          "address": "int31rc5tuqvvfh5sngwsegdq893zu9jfj64w7rnx4u",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "1000000000"
+            },
+            {
+              "denom": "uint3",
+              "amount": "1000000000"
+            }
+          ]
+        },
+        {
+          "address": "int31djewruqsxw9nh6fuk96hgde7zpt3gtv7rwmec4",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "1000000000"
+            },
+            {
+              "denom": "uint3",
+              "amount": "1000000000"
+            }
+          ]
+        },
+        {
+          "address": "int31dafm9d5a6j86r5lj7rh6a3n3zd7ul7mj5mc8jx",
+          "coins": [
+            {
+              "denom": "stake",
+              "amount": "1000000000"
+            },
+            {
+              "denom": "uint3",
+              "amount": "1000000000"
+            }
+          ]
+        }
+      ],
+      "supply": [],
+      "denom_metadata": [],
+      "send_enabled": []
+    },
+    "bridge": {
+      "params": {
+        "signers": [],
+        "assets": [
+          {
+            "id": {
+              "source_chain": "bitcoin",
+              "denom": "btc"
+            },
+            "status": "ASSET_STATUS_OK",
+            "exponent": "10",
+            "external_confirmations": "1",
+            "min_transfer_amount": "1000"
+          },
+          {
+            "id": {
+              "source_chain": "litecoin",
+              "denom": "ltc"
+            },
+            "status": "ASSET_STATUS_OK",
+            "exponent": "10",
+            "external_confirmations": "1",
+            "min_transfer_amount": "1000"
+          },
+          {
+            "id": {
+              "source_chain": "dogecoin",
+              "denom": "doge"
+            },
+            "status": "ASSET_STATUS_OK",
+            "exponent": "10",
+            "external_confirmations": "1",
+            "min_transfer_amount": "1000"
+          },
+          {
+            "id": {
+              "source_chain": "bitcoin-cash",
+              "denom": "bch"
+            },
+            "status": "ASSET_STATUS_OK",
+            "exponent": "10",
+            "external_confirmations": "1",
+            "min_transfer_amount": "1000"
+          }
+        ],
+        "votes_needed": "1",
+        "fee": "0.000000000000000000"
+      }
+    },
+    "capability": {
+      "index": "1",
+      "owners": []
+    },
+    "consensus": null,
+    "crisis": {
+      "constant_fee": {
+        "denom": "uint3",
+        "amount": "500000000000"
+      }
+    },
+    "distribution": {
+      "params": {
+        "community_tax": "0.000000000000000000",
+        "base_proposer_reward": "0.000000000000000000",
+        "bonus_proposer_reward": "0.000000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "fee_pool": {
+        "community_pool": []
+      },
+      "delegator_withdraw_infos": [],
+      "previous_proposer": "",
+      "outstanding_rewards": [],
+      "validator_accumulated_commissions": [],
+      "validator_historical_rewards": [],
+      "validator_current_rewards": [],
+      "delegator_starting_infos": [],
+      "validator_slash_events": []
+    },
+    "genutil": {
+      "gen_txs": [
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "int3face-node-1",
+                  "identity": "",
+                  "website": "https://int3face.io/",
+                  "security_contact": "",
+                  "details": "Int3face enjoyer"
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "int31rc5tuqvvfh5sngwsegdq893zu9jfj64w7rnx4u",
+                "validator_address": "int3valoper1rc5tuqvvfh5sngwsegdq893zu9jfj64wn4736n",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "w/YfkzNivDZ34y+mbK3/j3WWgYao18tBLf4Ypm2okCU="
+                },
+                "value": {
+                  "denom": "uint3",
+                  "amount": "1000000"
+                }
+              }
+            ],
+            "memo": "dcd1c6e5e94675e40f34c0d3ee1c1dace0a34cc0@94.101.98.225:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AwUjp35tud4EmenPDIO/SA1y3Bhvcn79ISInAlMB4KwM"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "lf8/DRezdOQN3FTgM3KUYmKy5iU0jFVvplyyCa8+hp0mEz9FKkFcoP4sLk3F9Mjktp+fZP3IHv6CmJW1AAP6dQ=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "int3face-node-2",
+                  "identity": "",
+                  "website": "https://int3face.io/",
+                  "security_contact": "",
+                  "details": "average Int3face fan"
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "int31p3drpvllz0ewcjq20ucwdr6l76rka9ep04lz4p",
+                "validator_address": "int3valoper1p3drpvllz0ewcjq20ucwdr6l76rka9epzrj46w",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "BO3QnyaARNbFJEcRZifIQgszve51ZJECnR2KSLzNr4Y="
+                },
+                "value": {
+                  "denom": "uint3",
+                  "amount": "10000000"
+                }
+              }
+            ],
+            "memo": "ae227853acb4c25fe2e9992703cb9e279933af41@149.36.1.202:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AwO95sw8fA5lNHtamruxaYqFp9FSDuVcPsCkjJuExpkt"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "3LYyJge5nP1Gz5ZibDT5o6dpRuYvXhtc8+9OuPxmlOZRinr+YGCCnGs6ggXZQUbnezo34LhNKZg+go9LEYCtCg=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "int3face-node-3",
+                  "identity": "",
+                  "website": "https://int3face.io/",
+                  "security_contact": "",
+                  "details": "average enjoyer fan"
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "int31djewruqsxw9nh6fuk96hgde7zpt3gtv7rwmec4",
+                "validator_address": "int3valoper1djewruqsxw9nh6fuk96hgde7zpt3gtv7wckwh6",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "cy5AwCno/KG+IIKuPI1dnY8y1A84QJptTLU3EpVRa00="
+                },
+                "value": {
+                  "denom": "uint3",
+                  "amount": "10000000"
+                }
+              }
+            ],
+            "memo": "98d64b811200d6168ecd9d68d194944f512d4639@149.36.1.187:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "Agq+cLYPTYTDOX+ct43MMdC1d+KbAAbr+RrGWNd6ChkY"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "GZLfm4LxnfP0PW+Wc2eZyPN9tYhwq5TOuwgIU6+YiiVdAC8Tlee28eIaR8WbKf48kIiv36SwqjHH1O8tyX0mUQ=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "int3face-node-4",
+                  "identity": "",
+                  "website": "https://int3face.io/",
+                  "security_contact": "",
+                  "details": "fan enjoyer"
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "int31dafm9d5a6j86r5lj7rh6a3n3zd7ul7mj5mc8jx",
+                "validator_address": "int3valoper1dafm9d5a6j86r5lj7rh6a3n3zd7ul7mjed4saf",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "6EBqjVx7LzajZ6hlRjeRufmx6/QxRDcyJMqhhQ+V0Uc="
+                },
+                "value": {
+                  "denom": "uint3",
+                  "amount": "10000000"
+                }
+              }
+            ],
+            "memo": "3902406e95eb247c3aef995ac04c9f4375313d1d@149.36.1.207:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "AlAHaUmac0mOMWiCDneO5ykIpdlXFZXsCoHqS8/5ZWhR"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "JoMj9QT4slCDJ1oWrrztl+BW0x4KhR6w0/b+DbMns/M9HKzMhrldyI9bLb/C7+o+xD8A47K53sChFD+cO5mQyA=="
+          ]
+        }
+      ]
+    },
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": [],
+      "votes": [],
+      "proposals": [],
+      "deposit_params": null,
+      "voting_params": null,
+      "tally_params": null,
+      "params": {
+        "min_deposit": [
+          {
+            "denom": "uint3",
+            "amount": "1000000"
+          }
+        ],
+        "max_deposit_period": "1209600s",
+        "voting_period": "300s",
+        "quorum": "0.000000000100000000",
+        "threshold": "0.500000000000000000",
+        "veto_threshold": "0.334000000000000000",
+        "min_initial_deposit_ratio": "0.000000000000000000",
+        "expedited_voting_period": "100s",
+        "expedited_threshold": "0.667000000000000000",
+        "expedited_min_deposit": [
+          {
+            "denom": "uint3",
+            "amount": "5000000"
+          }
+        ],
+        "burn_vote_quorum": false,
+        "burn_proposal_deposit_prevote": false,
+        "burn_vote_veto": true
+      }
+    },
+    "mint": {
+      "minter": {
+        "inflation": "0.130000000000000000",
+        "annual_provisions": "0.000000000000000000"
+      },
+      "params": {
+        "mint_denom": "uint3",
+        "inflation_rate_change": "0.130000000000000000",
+        "inflation_max": "0.200000000000000000",
+        "inflation_min": "0.070000000000000000",
+        "goal_bonded": "0.670000000000000000",
+        "blocks_per_year": "6311520"
+      }
+    },
+    "params": null,
+    "slashing": {
+      "params": {
+        "signed_blocks_window": "30000",
+        "min_signed_per_window": "0.050000000000000000",
+        "downtime_jail_duration": "60s",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.000000000000000000"
+      },
+      "signing_infos": [],
+      "missed_blocks": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "1209600s",
+        "max_validators": 100,
+        "max_entries": 7,
+        "historical_entries": 10000,
+        "bond_denom": "uint3",
+        "min_commission_rate": "0.050000000000000000"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": [],
+      "validators": [],
+      "delegations": [],
+      "unbonding_delegations": [],
+      "redelegations": [],
+      "exported": false
+    },
+    "tokenfactory": {
+      "params": {
+        "denom_creation_fee": [],
+        "denom_creation_gas_consume": "1000000"
+      },
+      "factory_denoms": []
+    },
+    "upgrade": {}
+  }
+}

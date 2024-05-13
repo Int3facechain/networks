@@ -1,0 +1,33 @@
+keyring-backend = "os"          # Name of the keyring backend (os|file|kwallet|pass|test)
+keyring-folder = "/home/ubuntu/.int3faced" # Path to the keyring folder
+mode = "testnet"                # Observer execution mode (mainnet|testnet)
+send-period = "1s"              # Interval for observer to process Tx queue
+
+[osmosis]
+chain-id = "int3-test-1"
+grpc-url = "127.0.0.1:9090"
+grpc-disable-tls = true
+rpc-url = "tcp://127.0.0.1:26657"
+min-outbound-transfer-amount = "1"
+
+[bitcoin]
+rpc-url = "https://bitcoin-testnet-archive.allthatnode.com"
+rpc-user = "test"
+rpc-pass = "test"
+last-observed-height = 2814063
+fetch-interval = "30s"
+min-outbound-transfer-amount = "1"
+
+[tss]
+bootstrap-peers = [
+    "/ip4/94.101.98.225/tcp/16666/p2p/16Uiu2HAm4KARMM2vaNQTK8y4rXyJQTSm47CLjErcJFMABeh1rdDq", # 0
+    "/ip4/149.36.1.202/tcp/16666/p2p/16Uiu2HAmCuL9y451FExd2HcCxPJP7aNZKg2kh8HMrj9XwJPqGgXi", # 1
+    "/ip4/149.36.1.187/tcp/16666/p2p/16Uiu2HAmAjewDvZNMJ2c6kRtx79SgdynzJaTgtiYyKxPvBDydAko", # 2
+    "/ip4/149.36.1.207/tcp/16666/p2p/16Uiu2HAmKw61BB4E6BKLKLEg9eCUQKdEpWECKK9pTkR8PX2oCwJL", # 3
+] # the peers of the P2P network used to set up the connection
+party-port = "16666" # the party's port
+rendezvous = "Int3face" # the "meet me here" point
+party-timeout = "5m0s" # how long do we wait for the party to form
+key-gen-timeout = "5m0s" # how long do we wait the keygen parties to pass messages along
+key-sign-timeout = "5m0s" # how long do we wait keysign
+pre-param-timeout = "1m0s" # the LocalPreParams generations timeout
