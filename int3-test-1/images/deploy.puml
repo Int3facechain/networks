@@ -1,0 +1,36 @@
+@startuml
+
+participant "Validator" as val
+participant "Int3face operator" as operator
+participant "Int3face GitHub" as github
+
+== Prepare ==
+
+val -> operator : public key
+operator -> operator : convert pub key to the Int3 addr
+operator -> operator : add the addr to the pregenesis and top it up
+operator -> github : upload pregenesis.json
+
+== Part 1 ==
+
+val <- github : download int3faced, int3obsd, and pregenesis.json
+val -> val : install binaries and pregenesis.json
+val -> val : run int3faced
+val -> val : import key pair
+val -> val : create gentx
+val -> github : upload gentx
+
+== Part 2 ==
+
+operator <- github : download all gentx
+operator -> operator : call collect-gentx and generate genesis.json
+operator -> operator : generate TSS data
+operator -> operator : generate observer.toml
+operator -> github : upload genesis.json, observer.toml
+operator -> val : send TSS data
+
+val <- github : download genesis.json and observer.toml
+val -> val : install genesis.json and observer.toml
+val -> val : run int3faced and int3obsd
+
+@enduml
