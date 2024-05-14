@@ -147,7 +147,7 @@ To create the validator, you will have to choose the following parameters for yo
 * details (optional)
 * pubkey (gotten in previous step)
 
-If you would like to override the memo field, use the --ip and --node-id flags.
+If you would like to override the memo field, use the `--ip` and `--node-id` flags.
 
 An example `create-validator` command looks like this:
 ```shell
@@ -165,7 +165,66 @@ int3faced tx staking create-validator \
   --pubkey='{"@type":"/cosmos.crypto.ed25519.PubKey","key":"w/YfkzNivDZ34y+mbK3/j3WWgYao18tBLf4Ypm2okCU="}'
 ```
 
+### Start a background service
+
+You will need some way to keep the `int3faced start` process always running. If you're on linux, you can do this by creating a service.
+
+```shell
+sudo tee /etc/systemd/system/int3faced.service > /dev/null <<EOF  
+[Unit]
+Description=Int3face Daemon
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which int3faced) start
+Restart=always
+RestartSec=3
+LimitNOFILE=infinity
+
+Environment="DAEMON_HOME=$HOME/.int3faced/"
+Environment="DAEMON_NAME=int3faced"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
+Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
+
+StandardOutput=file:$HOME/.int3faced/logs/int3faced.log
+StandardError=file:$HOME/.int3faced/logs/int3faced-error.log
+SyslogIdentifier=int3faced
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+Service's logs are stored into the `$HOME/.int3faced/logs/` directory.
+
+Then update and start the node:
+```shell
+sudo -S systemctl daemon-reload
+sudo -S systemctl enable int3faced
+sudo -S systemctl start int3faced
+```
+
+You can check the status with:
+```shell
+sudo -S systemctl status int3faced
+```
+
+And disable, stop, or restart the service:
+```shell
+sudo -S systemctl disable int3faced
+sudo -S systemctl stop int3faced
+sudo -S systemctl restart int3faced
+```
+
+Logs are available using the following command:
+```shell
+sudo journalctl -u int3faced
+```
+
 ## Observer node
+
+### Build and install the binary
 
 Int3face observer provides block scanners and chain clients for Int3face and external chains.
 
@@ -188,7 +247,11 @@ Build the application.
 ```bash
 make install
 ```
-The command above builds and installs the `int3obsd` binary to `$GOPATH/bin`. After that, `int3obsd` can be used to initialize the configuration.
+The command above builds and installs the `int3obsd` binary to `$GOPATH/bin`. 
+
+### Init the observer
+
+After that, `int3obsd` can be used to initialize the configuration.
 ```bash
 int3obsd init
 ```
@@ -210,4 +273,66 @@ The `default` folder stores the current observer profile; refer to [Profiles](#p
 4. `pool_key.pub` is the current public key of the committee
 5. `pre_params.hex` is the hexed pre-parameters used for the key generation
 
-To launch the observer, all files above must be properly set. Please contact Int3face team for getting all required parameters.
+To launch the observer, all files above must be properly set. Please contact Int3face team to get all the required parameters.
+
+### Start the observer
+
+Start the observer using your validator's account.
+```bash
+int3obsd start --from <key_name>
+```
+
+You will need some way to keep the `int3obsd start` process always running. If you're on linux, you can do this by creating a service.
+
+```shell
+sudo tee /etc/systemd/system/int3obsd.service > /dev/null <<EOF  
+[Unit]
+Description=Int3face Observer Daemon
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=/bin/sh -c 'echo ${PASSPHRASE} | $(which int3obsd) start --from my_validator_2'
+Restart=always
+RestartSec=3
+LimitNOFILE=infinity
+
+Environment="DAEMON_HOME=$HOME/.int3faced/observer"
+Environment="DAEMON_NAME=int3obsd"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
+Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
+
+StandardOutput=file:$HOME/.int3faced/observer/default/logs/int3obsd.log
+StandardError=file:$HOME/.int3faced/observer/default/logs/int3obsd-error.log
+SyslogIdentifier=int3obsd
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+
+Service's logs are stored into the `$HOME/.int3faced/observer/default/logs/` directory.
+
+Then update and start the node:
+```shell
+sudo -S systemctl daemon-reload
+sudo -S systemctl enable int3obsd
+sudo -S systemctl start int3obsd
+```
+
+You can check the status with:
+```shell
+sudo -S systemctl status int3obsd
+```
+
+And disable, stop, or restart the service:
+```shell
+sudo -S systemctl disable int3obsd
+sudo -S systemctl stop int3obsd
+sudo -S systemctl restart int3obsd
+```
+
+Logs are available using the following command:
+```shell
+sudo journalctl -u int3obsd
+```
