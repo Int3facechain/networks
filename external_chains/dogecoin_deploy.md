@@ -1,6 +1,7 @@
 # Testnet
 
 1. Download the binaries, extract to the bin folder
+
 ```sh
 wget https://github.com/dogecoin/dogecoin/releases/download/v1.14.7/dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
 tar -xzvf dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
@@ -11,11 +12,13 @@ rm -rf dogecoin-1.14.7 dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
 ```
 
 2. Create home dir for dogecoin
+
 ```sh
 mkdir ~/.dogecoin
 ```
 
 3. Initialize configuration, set your own `rpcuser` and `rpcpassword`
+
 ```sh
 echo 'daemon=1
 server=1
@@ -28,16 +31,19 @@ paytxfee=0.01' > ~/.dogecoin/dogecoin.conf
 ```
 
 4. Start the node
+
 ```sh
-dogecoind -daemon
+dogecoind
 ```
 
 5. Verify the node is started
+
 ```sh
 dogecoin-cli getinfo
 ```
 
 You should see a response like this:
+
 ```json
 {
   "version": 1140700,
@@ -63,6 +69,7 @@ You should see a response like this:
 Alternative way is to create our own `regtest` network.
 
 Everything is the same, but we should set different `dogecoin.conf` configuration:
+
 ```
 daemon=1
 server=1
@@ -76,9 +83,11 @@ paytxfee=0.01
 addnode=...
 addnode=...
 ```
+
 Define addresses of all other nodes in `addnode` field. Default P2P port for regtest is `18444`.
 
 1. Mine first blocks
+
 ```sh
 dogecoin-cli generate 110
 [
@@ -88,6 +97,7 @@ dogecoin-cli generate 110
 ```
 
 2. Verify blocks are mined
+
 ```sh
 dogecoin-cli getblockcount
 110
@@ -95,6 +105,7 @@ dogecoin-cli getblockcount
 You can do the same on the other nodes, to verify P2P connection.
 
 3. Check the balance on our node
+
 ```sh
 dogecoin-cli getbalance
 35000000.00000000
