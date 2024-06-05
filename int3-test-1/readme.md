@@ -11,7 +11,8 @@ validators hosted in the cloud.
 4. Validators download the repositories and install `int3faced` and `int3obsd` binaries.
 5. Validators download `pregenesis.json` and install it.
 6. Validators run the `int3faced` binary.
-7. Validators import their private/public key pairs into the Int3face chain to access balances (their public keys are already listed in `pregenesis.json`).
+7. Validators import their private/public key pairs into the Int3face chain to access balances (their public keys are
+   already listed in `pregenesis.json`).
 8. Validators create gentxs linked to their pregenesis balances.
 9. Validators commit their gentxs to this repository.
 10. Int3face operator collects all gentxs and generates a comprehensive `genesis.json` file.
@@ -24,11 +25,11 @@ validators hosted in the cloud.
 
 ## Validators
 
-### int3face-node-1
+### int3face-node-1 (not working)
 
 | Field              | Value                                       |
 |--------------------|---------------------------------------------|
-| IP                 | 94.101.98.225                               |
+| IP                 | 188.34.190.104                              |
 | node_name          | int3face-node-1                             |
 | chain_id           | int3-test-1                                 |
 | tendermint_node_id | dcd1c6e5e94675e40f34c0d3ee1c1dace0a34cc0    |
@@ -39,8 +40,8 @@ validators hosted in the cloud.
 
 | Field              | Value                                       |
 |--------------------|---------------------------------------------|
-| IP                 | 149.36.1.202                                |
-| node_name          | int3face-node-1                             |
+| IP                 | 188.245.39.76                               |
+| node_name          | int3face-node-2                             |
 | chain_id           | int3-test-1                                 |
 | tendermint_node_id | ae227853acb4c25fe2e9992703cb9e279933af41    |
 | val_acc_address    | int31p3drpvllz0ewcjq20ucwdr6l76rka9ep04lz4p |
@@ -50,7 +51,7 @@ validators hosted in the cloud.
 
 | Field              | Value                                       |
 |--------------------|---------------------------------------------|
-| IP                 | 149.36.1.187                                |
+| IP                 | 188.245.39.74                               |
 | node_name          | int3face-node-3                             |
 | chain_id           | int3-test-1                                 |
 | tendermint_node_id | 98d64b811200d6168ecd9d68d194944f512d4639    |
@@ -61,7 +62,7 @@ validators hosted in the cloud.
 
 | Field              | Value                                       |
 |--------------------|---------------------------------------------|
-| IP                 | 149.36.1.207                                |
+| IP                 | 188.245.39.49                               |
 | node_name          | int3face-node-4                             |
 | chain_id           | int3-test-1                                 |
 | tendermint_node_id | 3902406e95eb247c3aef995ac04c9f4375313d1d    |

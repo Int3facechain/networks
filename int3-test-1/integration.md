@@ -14,12 +14,19 @@ The usage of the blockchain grows, plus it may be needed to bootstrap external c
 ## Prerequisites
 
 ### Golang
+
 This project requires Go version 1.22 or later. Install Go by following the instructions on the official [Go installation guide](https://go.dev/doc/install).
 
 #### Linux installation
-Remove any previous Go installation
+
+Install the latest version of Golang
 ```shell
- rm -rf /usr/local/go && tar -C /usr/local -xzf go1.22.3.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.22.4.linux-amd64.tar.gz
+```
+
+Remove any previous Go installation and install the new version
+```shell
+ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.22.4.linux-amd64.tar.gz
 ```
 
 Add `/usr/local/go/bin` to the `PATH` environment variable.
@@ -38,7 +45,10 @@ go version
 Install essential tools and packages needed to compile and build the binaries.
 
 ```bash
-sudo apt install build-essential
+sudo apt update && sudo apt upgrade -y
+```
+```bash
+sudo apt install build-essential -y
 ```
 
 ## Int3face node
@@ -83,15 +93,21 @@ int3faced init <your_moniker> --chain-id=int3-test-1
 ### Download genesis
 Download the `genesis.json` file and place it into the Int3face configuration directory (`~/.int3faced/config` by default).
 ```shell
-curl https://github.com/Int3facechain/networks/blob/main/int3-test-1/genesis.json > $HOME/.osmosisd/config/genesis.json
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/genesis.json --output-document $HOME/.int3faced/config/genesis.json
 ```
 
 ### Download app config
 Download the `config.toml` file and place it into the Int3face configuration directory (`~/.int3faced/config` by default).
 ```shell
-curl https://github.com/Int3facechain/networks/blob/main/int3-test-1/config.toml > $HOME/.osmosisd/config/genesis.json
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/config.toml --output-document $HOME/.int3faced/config/config.toml
 ```
-You can modify the config if it's needed, but make sure to keep all the default ports and persistent peer addresses.  
+You can modify the config if it's needed, but make sure to keep all the default ports and persistent peer addresses.
+
+### Save your chain-id
+
+```shell
+int3faced config chain-id int3-test-1
+```
 
 ### Import validator key
 
@@ -187,8 +203,8 @@ Environment="DAEMON_NAME=int3faced"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 
-StandardOutput=file:$HOME/.int3faced/logs/int3faced.log
-StandardError=file:$HOME/.int3faced/logs/int3faced-error.log
+StandardOutput=append:$HOME/.int3faced/logs/int3faced.log
+StandardError=append:$HOME/.int3faced/logs/int3faced-error.log
 SyslogIdentifier=int3faced
 
 [Install]
@@ -302,8 +318,8 @@ Environment="DAEMON_NAME=int3obsd"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 
-StandardOutput=file:$HOME/.int3faced/observer/default/logs/int3obsd.log
-StandardError=file:$HOME/.int3faced/observer/default/logs/int3obsd-error.log
+StandardOutput=append:$HOME/.int3faced/observer/default/logs/int3obsd.log
+StandardError=append:$HOME/.int3faced/observer/default/logs/int3obsd-error.log
 SyslogIdentifier=int3obsd
 
 [Install]
@@ -335,4 +351,90 @@ sudo -S systemctl restart int3obsd
 Logs are available using the following command:
 ```shell
 sudo journalctl -u int3obsd
+```
+
+## DOGE Node
+
+Download the binaries, extract to the bin folder
+
+```shell
+wget https://github.com/dogecoin/dogecoin/releases/download/v1.14.7/dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
+tar -xzvf dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
+mv dogecoin-1.14.7/bin/* ~/bin/
+
+# We can remove these
+rm -rf dogecoin-1.14.7 dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
+```
+
+Create home dir for DOGE
+
+```shell
+mkdir ~/.dogecoin
+```
+
+Download configuration file
+```shell
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/dogecoin.conf --output-document $HOME/.dogecoin/dogecoin.conf
+```
+And set your own `rpcuser` and `rpcpassword` in the downloaded file.
+
+Start the node
+
+```shell
+dogecoind
+```
+
+Verify the node is started
+
+```shell
+dogecoin-cli getinfo
+```
+
+You should see a response like this:
+
+```json
+{
+  "version": 1140700,
+  "protocolversion": 70015,
+  "walletversion": 130000,
+  "balance": 0.00000000,
+  "blocks": 55054,
+  "timeoffset": 0,
+  "connections": 8,
+  "proxy": "",
+  "difficulty": 0.0005981929943754981,
+  "testnet": true,
+  "keypoololdest": 1715596527,
+  "keypoolsize": 100,
+  "paytxfee": 0.01000000,
+  "relayfee": 0.00100000,
+  "errors": ""
+}
+```
+
+Mine the blocks to collect new coins. You may need to execute this operation several times until you get the coins.
+
+```shell
+dogecoin-cli generate 110
+```
+
+Response:
+
+```
+[
+  "ad3c340e804e0b08af4b3302613b8f8f02ad7b4ea1cb2267e296868ee9705027",
+  ...
+]
+```
+
+Verify the blocks are mined
+
+```shell
+dogecoin-cli getblockcount
+```
+
+Check the balance of our node
+
+```shell
+dogecoin-cli getbalance
 ```

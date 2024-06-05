@@ -1,5 +1,5 @@
 keyring-backend = "os"          # Name of the keyring backend (os|file|kwallet|pass|test)
-keyring-folder = "/home/ubuntu/.int3faced" # Path to the keyring folder
+keyring-folder = "~/.int3faced" # Path to the keyring folder
 mode = "testnet"                # Observer execution mode (mainnet|testnet)
 send-period = "1s"              # Interval for observer to process Tx queue
 
@@ -11,19 +11,18 @@ rpc-url = "tcp://127.0.0.1:26657"
 min-outbound-transfer-amount = "1"
 
 [bitcoin]
-rpc-url = "https://bitcoin-testnet-archive.allthatnode.com"
+rpc-url = "http://127.0.0.1:18343"
 rpc-user = "test"
 rpc-pass = "test"
-last-observed-height = 2814063
 fetch-interval = "30s"
 min-outbound-transfer-amount = "1"
 
 [tss]
 bootstrap-peers = [
-    "/ip4/94.101.98.225/tcp/16666/p2p/16Uiu2HAm4KARMM2vaNQTK8y4rXyJQTSm47CLjErcJFMABeh1rdDq", # 0
-    "/ip4/149.36.1.202/tcp/16666/p2p/16Uiu2HAmCuL9y451FExd2HcCxPJP7aNZKg2kh8HMrj9XwJPqGgXi", # 1
-    "/ip4/149.36.1.187/tcp/16666/p2p/16Uiu2HAmAjewDvZNMJ2c6kRtx79SgdynzJaTgtiYyKxPvBDydAko", # 2
-    "/ip4/149.36.1.207/tcp/16666/p2p/16Uiu2HAmKw61BB4E6BKLKLEg9eCUQKdEpWECKK9pTkR8PX2oCwJL", # 3
+    "/ip4/188.34.190.104/tcp/16666/p2p/16Uiu2HAm4KARMM2vaNQTK8y4rXyJQTSm47CLjErcJFMABeh1rdDq", # 0
+    "/ip4/188.245.39.76/tcp/16666/p2p/16Uiu2HAmCuL9y451FExd2HcCxPJP7aNZKg2kh8HMrj9XwJPqGgXi", # 1
+    "/ip4/188.245.39.74/tcp/16666/p2p/16Uiu2HAmAjewDvZNMJ2c6kRtx79SgdynzJaTgtiYyKxPvBDydAko", # 2
+    "/ip4/188.245.39.49/tcp/16666/p2p/16Uiu2HAmKw61BB4E6BKLKLEg9eCUQKdEpWECKK9pTkR8PX2oCwJL", # 3
 ] # the peers of the P2P network used to set up the connection
 party-port = "16666" # the party's port
 rendezvous = "Int3face" # the "meet me here" point
