@@ -63,11 +63,11 @@ To install Int3face node, clone the repository to your local machine from Github
 git clone https://github.com/Int3facechain/bridge.git int3face-bridge
 ```
 
-Then, check out the last released version. Currently, it's `v0.0.7`.
+Then, check out the last released version. Currently, it's `v0.1.2`.
 
 ```bash
 cd int3face-bridge
-git checkout v0.0.7
+git checkout v0.1.2
 ```
 
 At the top-level directory of the project execute the following command, which will build and install the `int3faced` binary to `$GOPATH/bin`.
@@ -101,7 +101,10 @@ Download the `config.toml` file and place it into the Int3face configuration dir
 ```shell
 wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/config.toml --output-document $HOME/.int3faced/config/config.toml
 ```
-You can modify the config if it's needed, but make sure to keep all the default ports and persistent peer addresses.
+
+The next step is to set your moniker in `config.toml` instead of the default one. You can do it by modifying the `moniker` field at the top of the `config.toml` file. 
+
+Besides that, you can modify the config if it's needed, but make sure to keep all the default ports and persistent peer addresses.
 
 ### Save your chain-id
 
@@ -250,20 +253,19 @@ To install Int3face observer, clone the repository to your local machine from Gi
 git clone https://github.com/Int3facechain/observer.git int3face-int3faced
 ```
 
-Then, check out the last released version. Currently, it's `v0.0.1`.
+Then, check out the last released version. Currently, it's `v0.1.1`.
 
 ```bash
 cd int3face-int3faced
-git checkout v0.0.1
+git checkout v0.1.1
 ```
 
 At the top-level directory of the project execute the following command, which will build and install the `int3obsd` binary to `$GOPATH/bin`.
 
-Build the application.
 ```bash
 make install
 ```
-The command above builds and installs the `int3obsd` binary to `$GOPATH/bin`. 
+This command builds and installs the `int3obsd` binary to `$GOPATH/bin`. 
 
 ### Init the observer
 
@@ -275,6 +277,8 @@ This creates the observer configuration in the Int3face home directory (`~/.int3
 ```text
 observer
 └── default
+    ├── tss
+    ├── logs
     ├── node_key
     ├── node_key.pub
     ├── observer.toml
@@ -283,13 +287,24 @@ observer
 ```
 
 The `default` folder stores the current observer profile; refer to [Profiles](#profiles) for details. The profile folder contents:
-1. `node_key` is the node's private key
-2. `node_key.pub` is the node's public key
-3. `observer.toml` is the observer config file
-4. `pool_key.pub` is the current public key of the committee
-5. `pre_params.hex` is the hexed pre-parameters used for the key generation
+1. `tss` is a folder with all TSS-related information
+2. `logs` is a folder for logs
+3. `node_key` is the node's private key
+4. `node_key.pub` is the node's public key
+5. `observer.toml` is the observer config file
+6. `pool_key.pub` is the current public key of the committee
+7. `pre_params.json` is the hexed pre-parameters used for the key generation
 
-To launch the observer, all files above must be properly set. Please contact Int3face team to get all the required parameters.
+All the files and folders contain randomly generated data, which is sufficient for launching the node. Please do not modify these files unless you know what you are doing!
+
+### Download observer config
+
+Download the `observer.toml` file and place it into the observer configuration directory (`~/.int3faced/observer/default` by default).
+```shell
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/observer.toml --output-document $HOME/.int3faced/observer/default/observer.toml
+```
+
+Modify the config is it's needed. The most important thing is to ensure that the `keyring-folder` parameter is properly configured and points to your keyring.
 
 ### Start the observer
 
@@ -299,6 +314,19 @@ int3obsd start --from <key_name>
 ```
 
 You will need some way to keep the `int3obsd start` process always running. If you're on linux, you can do this by creating a service.
+
+To make the service work, you need a way to pass your keyring passphrase to the service. One option to do that is to create an environment variable with your passphrase and make it persistent for the current linux user.
+
+```shell
+echo 'export PASSPHRASE="<your_keyring_passphrase>"' | tee -a .profile
+```
+
+And to load changes type
+```shell
+source .profile
+```
+
+This command will add a new variable called `PASSPHRASE` and persist it in your bash config. Later, the observer service will use it to start automatically.
 
 ```shell
 sudo tee /etc/systemd/system/int3obsd.service > /dev/null <<EOF  
@@ -353,10 +381,15 @@ Logs are available using the following command:
 sudo journalctl -u int3obsd
 ```
 
+### Join the committee
+
+At the beginning, your node is not part of the TSS committee. While you can observe blocks, your vote will not be counted during bridging. To become a participant, please wait for the next round of pool public key generation. If you want to expedite this process or require additional information, feel free to contact our team!
+
 ## DOGE Node
 
-Download the binaries, extract to the bin folder
+### Download binaries
 
+Download the DOGE binaries and extract them to the bin folder.
 ```shell
 wget https://github.com/dogecoin/dogecoin/releases/download/v1.14.7/dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
 tar -xzvf dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
@@ -366,25 +399,38 @@ mv dogecoin-1.14.7/bin/* ~/bin/
 rm -rf dogecoin-1.14.7 dogecoin-1.14.7-x86_64-linux-gnu.tar.gz
 ```
 
-Create home dir for DOGE
+`bin` folder is a folder added to the `PATH` environment variable. However, you can use an arbitrary folder to store the binaries.
+
+If you also want to use the `bin` folder, one can be added to the `PATH` using the following command:
+
+```shell
+echo 'export PATH=$PATH:~/bin' | tee -a .profile
+```
+
+And to load changes type
+```shell
+source .profile
+```
+
+### Create home dir
 
 ```shell
 mkdir ~/.dogecoin
 ```
 
-Download configuration file
+### Download DOGE configuration
 ```shell
 wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/dogecoin.conf --output-document $HOME/.dogecoin/dogecoin.conf
 ```
-And set your own `rpcuser` and `rpcpassword` in the downloaded file.
+And set your own `rpcuser` and `rpcpassword` in the downloaded file. Also, modify these fields in the `observer.toml` file so the observer can connect to the Dogecoin node.
 
-Start the node
+### Start the node
 
 ```shell
 dogecoind
 ```
 
-Verify the node is started
+### Verify the node is started
 
 ```shell
 dogecoin-cli getinfo
@@ -412,11 +458,15 @@ You should see a response like this:
 }
 ```
 
-Mine the blocks to collect new coins. You may need to execute this operation several times until you get the coins.
+### Mine blocks
+
+Mine blocks to collect new coins. You may need to execute this operation several times until you get the coins.
 
 ```shell
-dogecoin-cli generate 110
+dogecoin-cli generate 10
 ```
+
+10 is the number of the mined blocks. This may be an arbitrary number, but keep it small.
 
 Response:
 
@@ -427,13 +477,13 @@ Response:
 ]
 ```
 
-Verify the blocks are mined
+### Verify the blocks are mined
 
 ```shell
 dogecoin-cli getblockcount
 ```
 
-Check the balance of our node
+### Check the balance of our node
 
 ```shell
 dogecoin-cli getbalance
