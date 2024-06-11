@@ -422,7 +422,7 @@ mkdir ~/.dogecoin
 ```shell
 wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/dogecoin.conf --output-document $HOME/.dogecoin/dogecoin.conf
 ```
-And set your own `rpcuser` and `rpcpassword` in the downloaded file. Also, modify these fields in the `observer.toml` file so the observer can connect to the Dogecoin node.
+And set your own `rpcuser` and `rpcpassword` in the downloaded file. Also, modify these fields in the `observer.toml` file, so the observer can connect to the Dogecoin node.
 
 ### Start the node
 
