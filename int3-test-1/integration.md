@@ -127,6 +127,44 @@ Don't forget to save the mnemonic!
 int3faced keys add <key_name> --recover
 ```
 
+### Sync the node
+
+We use a state snapshot to sync the state of the node. For state syncing, the `config.toml` file must be properly set, which is already done if you use the config from this repo. If you want to know more about this process, feel free to refer to the documentation
+1. https://docs.cometbft.com/v0.37/core/state-sync
+2. https://docs.cosmos.network/main/user/run-node/run-node#state-sync
+
+#### Download the snapshot
+
+```shell
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/342200-3.tar.gz
+```
+
+#### Load the snapshot
+
+Load the snapshot archive from the repository.
+```shell
+int3faced snapshots load 342200-3.tar.gz
+```
+
+#### List snapshots
+
+List snapshot to make sure it is loaded.
+```shell
+int3faced snapshots list
+```
+
+#### Restore the state
+
+Restore the state from the snapshot.
+```shell
+int3faced snapshots restore 342200 3
+```
+
+Bootstrap the Comet state in order to start the node from the last state.
+```shell
+int3faced comet bootstrap-state
+```
+
 ### Start the node
 The following command starts the node. Note that after starting, the node should sync first, which may take some time until you can start using it.
 ```shell
