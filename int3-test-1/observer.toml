@@ -9,6 +9,7 @@ grpc-url = "127.0.0.1:9090"
 grpc-disable-tls = true
 rpc-url = "tcp://127.0.0.1:26657"
 min-outbound-transfer-amount = "1"
+health-check-period = "5s"
 
 #[bitcoin]
 #rpc-url = "http://127.0.0.1:18343" # Url for the chain specific RPC client

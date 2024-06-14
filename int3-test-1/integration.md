@@ -291,11 +291,11 @@ To install Int3face observer, clone the repository to your local machine from Gi
 git clone https://github.com/Int3facechain/observer.git int3face-int3faced
 ```
 
-Then, check out the last released version. Currently, it's `v0.1.1`.
+Then, check out the last released version. Currently, it's `v0.1.1a`.
 
 ```bash
 cd int3face-int3faced
-git checkout v0.1.1
+git checkout v0.1.1a
 ```
 
 At the top-level directory of the project execute the following command, which will build and install the `int3obsd` binary to `$GOPATH/bin`.
