@@ -57,17 +57,17 @@ sudo apt install build-essential -y
 
 Int3face node provides CLI commands for submitting inbound and outbound transfers and other queries.
 
-To install Int3face node, clone the repository to your local machine from Github. Please contact the Int3face team for accessing the `Int3facechain/briage` repository.
+To install Int3face node, clone the repository to your local machine from Github. Please contact the Int3face team for accessing the `Int3facechain/bridge` repository.
 
 ```bash
 git clone https://github.com/Int3facechain/bridge.git int3face-bridge
 ```
 
-Then, check out the last released version. Currently, it's `v0.1.2`.
+Then, check out the last released version. Currently, it's `v0.1.2a`.
 
 ```bash
 cd int3face-bridge
-git checkout v0.1.2
+git checkout v0.1.2a
 ```
 
 At the top-level directory of the project execute the following command, which will build and install the `int3faced` binary to `$GOPATH/bin`.
@@ -288,14 +288,14 @@ Int3face observer provides block scanners and chain clients for Int3face and ext
 To install Int3face observer, clone the repository to your local machine from Github. Please contact the Int3face team for accessing the `Int3facechain/observer` repository.
 
 ```bash
-git clone https://github.com/Int3facechain/observer.git int3face-int3faced
+git clone https://github.com/Int3facechain/observer.git int3face-int3obsd
 ```
 
-Then, check out the last released version. Currently, it's `v0.1.1a`.
+Then, check out the last released version. Currently, it's `v0.1.1b`.
 
 ```bash
-cd int3face-int3faced
-git checkout v0.1.1a
+cd int3face-int3obsd
+git checkout v0.1.1b
 ```
 
 At the top-level directory of the project execute the following command, which will build and install the `int3obsd` binary to `$GOPATH/bin`.
@@ -501,10 +501,10 @@ You should see a response like this:
 Mine blocks to collect new coins. You may need to execute this operation several times until you get the coins.
 
 ```shell
-dogecoin-cli generate 10
+dogecoin-cli generate 110
 ```
 
-10 is the number of the mined blocks. This may be an arbitrary number, but keep it small.
+110 is the number of the mined blocks, this may be an arbitrary number. Keep in mind, that Dogecoin has a maturity period of 100 blocks, this means that any mined tokens will be reflected in your balance only after 100 blocks.
 
 Response:
 
