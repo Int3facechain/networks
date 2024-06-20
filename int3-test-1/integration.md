@@ -526,3 +526,123 @@ dogecoin-cli getblockcount
 ```shell
 dogecoin-cli getbalance
 ```
+
+## BTC Node
+
+### Download binaries
+
+```shell
+wget https://bitcoincore.org/bin/bitcoin-core-25.0/bitcoin-25.0-x86_64-linux-gnu.tar.gz
+tar -xzvf bitcoin-25.0-x86_64-linux-gnu.tar.gz
+mv bitcoin-25.0/bin/* ~/bin/
+
+rm -rf bitcoin-25.0  bitcoin-25.0-x86_64-linux-gnu.tar.gz
+```
+
+`bin` folder is a folder added to the `PATH` environment variable. However, you can use an arbitrary folder to store the binaries.
+
+If you also want to use the `bin` folder, one can be added to the `PATH` using the following command:
+
+```shell
+echo 'export PATH=$PATH:~/bin' | tee -a .profile
+```
+
+And to load changes type
+```shell
+source .profile
+```
+
+### Create home dir
+
+```shell
+mkdir ~/.bitcoin
+```
+
+### Download BTC configuration
+
+```shell
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/bitcoin.conf --output-document $HOME/.bitcoin/bitcoin.conf
+```
+
+### Start the node
+
+```shell
+bitcoind
+```
+
+### Verify node is started
+
+```shell
+bitcoin-cli getblockchaininfo
+```
+
+You should see a response like this:
+
+```json
+{
+  "chain": "regtest",
+  "blocks": 115,
+  "headers": 115,
+  "bestblockhash": "49e631bd7f92343f2c3a74636821493770309993ba59abbf518da911f850917f",
+  "difficulty": 4.656542373906925e-10,
+  "time": 1718890479,
+  "mediantime": 1718884754,
+  "verificationprogress": 1,
+  "initialblockdownload": false,
+  "chainwork": "00000000000000000000000000000000000000000000000000000000000000e8",
+  "size_on_disk": 38617,
+  "pruned": false,
+  "warnings": ""
+}
+```
+
+### Create new wallet or load your own wallet
+
+#### Create
+
+```shell
+bitcoin-cli createwallet "$your_wallet_name$" false false "" false true true
+```
+
+Args after the wallet name:
+1. Enables use of the private keys
+2. Init keys and HD seed
+3. Password
+4. Keep track of coin reuse
+5. Create native descriptors
+6. Load this wallet on startup
+
+#### Load
+
+```shell
+bitcoin-cli loadwallet "$your_wallet_name$" true
+```
+
+Args after the wallet name:
+1. Load this wallet on startup
+
+### Create new address for your wallet
+
+```shell
+bitcoin-cli getnewaddress
+```
+
+### Mine blocks
+
+```shell
+bitcoin-cli generatetoaddress 110 $YOUR_ADDR$
+```
+
+110 is the number of the mined blocks, this may be an arbitrary number. Keep in mind, that Bitcoin has a maturity period of 100 blocks, this means that any mined tokens will be reflected in your balance only after 100 blocks.
+
+### Verify the blocks are mined
+
+```shell
+bitcoin-cli getblockcount
+```
+
+### Check the balance of our node
+
+```shell
+bitcoin-cli getbalance
+```
