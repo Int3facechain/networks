@@ -136,14 +136,14 @@ We use a state snapshot to sync the state of the node. For state syncing, the `c
 #### Download the snapshot
 
 ```shell
-wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/342200-3.tar.gz
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/768090-3.tar.gz
 ```
 
 #### Load the snapshot
 
 Load the snapshot archive from the repository.
 ```shell
-int3faced snapshots load 342200-3.tar.gz
+int3faced snapshots load 768090-3.tar.gz
 ```
 
 #### List snapshots
@@ -157,7 +157,7 @@ int3faced snapshots list
 
 Restore the state from the snapshot.
 ```shell
-int3faced snapshots restore 342200 3
+int3faced snapshots restore 768090 3
 ```
 
 Bootstrap the Comet state in order to start the node from the last state.
