@@ -342,7 +342,7 @@ Download the `observer.toml` file and place it into the observer configuration d
 wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/observer.toml --output-document $HOME/.int3faced/observer/default/observer.toml
 ```
 
-Modify the config if it's needed. The most important thing is to ensure that the `keyring-folder` parameter is properly configured and points to your keyring.
+Modify the config if it's needed. The most important thing is to ensure that the `keyring-folder` parameter is properly configured and points to your keyring. Note that in some Linux distributions, the observer binary fails to parse a tilde sign in the home-relative path. Therefore, if you receive an error saying that the keyring is not found, try changing the keyring path in `observer.toml` from, for example, `~/.intrfaced` to `/root/.intrfaced` (meaning avoid using `~`).
 
 ### Start the observer
 
