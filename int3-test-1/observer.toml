@@ -11,31 +11,31 @@ rpc-url = "tcp://127.0.0.1:26657"
 min-outbound-transfer-amount = "1"
 health-check-period = "5s"
 
-#[bitcoin]
-#rpc-url = "http://127.0.0.1:18343" # Url for the chain specific RPC client
-#rpc-user = "bitcoinrpc" # Username for the RPC connection authorization
-#rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9" # Password for the RPC connection authorization
-#last-observed-height = 0 # Last observed block height number, if not set will be requested from the x/bridge
-#fetch-interval = "30s" # Interval to scan chain blocks
-#min-outbound-transfer-amount = "1" # Minimal amount of tokens to observe transaction
-#denom = "btc" # Token denom
-#observed-block-cache-size = 30 # Amount of observed blocks to keep in memory
-#signed-txs-cache-size = 100 # Amount of signed txs to keep in memory
-#max-sats-per-vbyte = 1024 # Max fee to pay per a vbyte
-#max-utxos-to-spend = 10 # Max amount of UTXOs to spend in a single transaction
+[bitcoin]
+rpc-url = "http://127.0.0.1:18343"                                            # Url for the chain specific RPC client
+rpc-user = "bitcoinrpc"                                                       # Username for the RPC connection authorization
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9" # Password for the RPC connection authorization
+last-observed-height = 0                                                      # Last observed block height number, if not set will be requested from the x/bridge
+fetch-interval = "30s"                                                        # Interval to scan chain blocks
+min-outbound-transfer-amount = "1"                                            # Minimal amount of tokens to observe transaction
+denom = "btc"                                                                 # Token denom
+observed-block-cache-size = 30                                                # Amount of observed blocks to keep in memory
+signed-txs-cache-size = 100                                                   # Amount of signed txs to keep in memory
+max-sats-per-vbyte = 1024                                                     # Max fee to pay per a vbyte
+max-utxos-to-spend = 10                                                       # Max amount of UTXOs to spend in a single transaction
 
 [dogecoin]
-rpc-url = "http://127.0.0.1:18332" # Url for the chain specific RPC client
-rpc-user = "dogecoinrpc" # Username for the RPC connection authorization
+rpc-url = "http://127.0.0.1:18332"                                            # Url for the chain specific RPC client
+rpc-user = "dogecoinrpc"                                                      # Username for the RPC connection authorization
 rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9" # Password for the RPC connection authorization
-last-observed-height = 0 # Last observed block height number, if not set will be requested from the x/bridge
-fetch-interval = "30s" # Interval to scan chain blocks
-min-outbound-transfer-amount = "1" # Minimal amount of tokens to observe transaction
-denom = "doge" # Token denom
-observed-blocks-cache-size = 30 # Amount of observed blocks to keep in memory
-signed-txs-cache-size = 100 # Amount of signed txs to keep in memory
-max-sats-per-vbyte = 1024 # Max fee to pay per a vbyte
-max-utxos-to-spend = 10 # Max amount of UTXOs to spend in a single transaction
+last-observed-height = 0                                                      # Last observed block height number, if not set will be requested from the x/bridge
+fetch-interval = "30s"                                                        # Interval to scan chain blocks
+min-outbound-transfer-amount = "1"                                            # Minimal amount of tokens to observe transaction
+denom = "doge"                                                                # Token denom
+observed-blocks-cache-size = 30                                               # Amount of observed blocks to keep in memory
+signed-txs-cache-size = 100                                                   # Amount of signed txs to keep in memory
+max-sats-per-vbyte = 1024                                                     # Max fee to pay per a vbyte
+max-utxos-to-spend = 10                                                       # Max amount of UTXOs to spend in a single transaction
 
 [tss]
 bootstrap-peers = [
