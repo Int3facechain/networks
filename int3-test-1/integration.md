@@ -63,11 +63,11 @@ To install Int3face node, clone the repository to your local machine from Github
 git clone https://github.com/Int3facechain/bridge.git int3face-bridge
 ```
 
-Then, check out the last released version. Currently, it's `v0.1.2a`.
+Then, check out the last released version. Currently, it's `v0.1.4`.
 
 ```bash
 cd int3face-bridge
-git checkout v0.1.2a
+git checkout v0.1.4
 ```
 
 At the top-level directory of the project execute the following command, which will build and install the `int3faced` binary to `$GOPATH/bin`.
@@ -291,11 +291,11 @@ To install Int3face observer, clone the repository to your local machine from Gi
 git clone https://github.com/Int3facechain/observer.git int3face-int3obsd
 ```
 
-Then, check out the last released version. Currently, it's `v0.1.1b`.
+Then, check out the last released version. Currently, it's `v0.1.2`.
 
 ```bash
 cd int3face-int3obsd
-git checkout v0.1.1b
+git checkout v0.1.2
 ```
 
 At the top-level directory of the project execute the following command, which will build and install the `int3obsd` binary to `$GOPATH/bin`.
