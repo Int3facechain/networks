@@ -39,9 +39,9 @@ max-utxos-to-spend = 10                                                       # 
 
 [tss]
 bootstrap-peers = [
-    "/ip4/188.245.39.76/tcp/16666/p2p/16Uiu2HAmCuL9y451FExd2HcCxPJP7aNZKg2kh8HMrj9XwJPqGgXi", # 1
-    "/ip4/188.245.39.74/tcp/16666/p2p/16Uiu2HAmAjewDvZNMJ2c6kRtx79SgdynzJaTgtiYyKxPvBDydAko", # 2
-    "/ip4/188.245.39.49/tcp/16666/p2p/16Uiu2HAmKw61BB4E6BKLKLEg9eCUQKdEpWECKK9pTkR8PX2oCwJL", # 3
+    "/ip4/188.245.39.76/tcp/16666/p2p/16Uiu2HAmCubXKhsJQHsx8UJ3t95CrpJ2o5PRwUaFX2gwpqiBvHkg", # 1
+    "/ip4/188.245.39.74/tcp/16666/p2p/16Uiu2HAkv9cUzANdDBcV3Ca8n9JwoXG42mL8aK8o4Q9TfBroSyFd", # 2
+    "/ip4/188.245.39.49/tcp/16666/p2p/16Uiu2HAkzp59gBYafZ969eCBykvmTW3NqrB6e9KGiBFDPZFQtzEt", # 3
 ] # the peers of the P2P network used to set up the connection
 party-port = "16666" # the party's port
 rendezvous = "Int3face" # the "meet me here" point
@@ -49,3 +49,8 @@ party-timeout = "5m0s" # how long do we wait for the party to form
 key-gen-timeout = "5m0s" # how long do we wait the keygen parties to pass messages along
 key-sign-timeout = "5m0s" # how long do we wait keysign
 pre-param-timeout = "1m0s" # the LocalPreParams generations timeout
+
+[monitoring]
+enabled = false # Enable or disable monitoring HTTP server. The list of metrics is presented at https://github.com/Int3facechain/architecture/blob/main/ADR/adr-006-metrics.md
+port = "27727" # TCP port to expose monitoring HTTP server
+
