@@ -355,7 +355,7 @@ experimental_max_gossip_connections_to_non_persistent_peers = 0
 # the network to take and serve state machine snapshots. State sync is not attempted if the node
 # has any local state (LastBlockHeight > 0). The node will have a truncated block history,
 # starting from the height of the snapshot.
-enable = true
+enable = false
 
 # RPC servers (comma-separated) for light client verification of the synced state machine and
 # retrieval of state data for node bootstrapping. Also needs a trusted height and corresponding
@@ -363,9 +363,9 @@ enable = true
 #
 # For Cosmos SDK-based chains, trust_period should usually be about 2/3 of the unbonding time (~2
 # weeks) during which they can be financially punished (slashed) for misbehavior.
-rpc_servers = "65.108.86.114:26657,65.109.1.30:26657"
-trust_height = 768090
-trust_hash = "35350F0AEDD76E686B0B6F85217760E96259F9377D35E9E3558981050456C8AA"
+rpc_servers = ""
+trust_height = 0
+trust_hash = ""
 trust_period = "1080h0m0s"
 
 # Time to spend discovering snapshots before initiating a restore.

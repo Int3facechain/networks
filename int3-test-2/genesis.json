@@ -101,16 +101,7 @@
           ]
         }
       ],
-      "supply": [
-        {
-          "denom": "stake",
-          "amount": "1000000000"
-        },
-        {
-          "denom": "uint3",
-          "amount": "1000000000"
-        }
-      ],
+      "supply": [ ],
       "denom_metadata": [],
       "send_enabled": []
     },
