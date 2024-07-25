@@ -4,7 +4,7 @@ mode = "regtest"                # Observer execution mode (mainnet|testnet)
 send-period = "1s"              # Interval for observer to process Tx queue
 
 [int3face]
-chain-id = "int3-test-1"
+chain-id = "int3-test-2"
 grpc-url = "127.0.0.1:9090"
 grpc-disable-tls = true
 rpc-url = "tcp://127.0.0.1:26657"
