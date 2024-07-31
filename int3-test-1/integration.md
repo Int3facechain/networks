@@ -646,3 +646,102 @@ bitcoin-cli getblockcount
 ```shell
 bitcoin-cli getbalance
 ```
+
+## BCH Node
+
+### Download binaries
+
+BCH binaries names intersect with the BTC names. So, we are going to rename the binaries.
+
+```shell
+wget https://github.com/bitcoin-cash-node/bitcoin-cash-node/releases/download/v27.1.0/bitcoin-cash-node-27.1.0-x86_64-linux-gnu.tar.gz
+tar -xzvf bitcoin-cash-node-27.1.0-x86_64-linux-gnu.tar.gz
+
+mv bitcoin-cash-node-27.1.0/bin/bitcoind ~/bin/bcashd
+mv bitcoin-cash-node-27.1.0/bin/bitcoin-cli ~/bin/bcash-cli
+mv bitcoin-cash-node-27.1.0/bin/bitcoin-tx ~/bin/bcash-tx
+
+rm -rf bitcoin-cash-node-27.1.0 bitcoin-cash-node-27.1.0-x86_64-linux-gnu.tar.gz
+```
+
+### Create home dir
+
+```shell
+mkdir ~/.bitcoin-cash
+```
+
+### Download BCH configuration
+
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/bitcoin-cash.conf --output-document $HOME/.bitcoin-cash/bitcoin-cash.conf
+
+### Create aliases
+
+Since the BCH names and paths conflict with the BTC, let's create aliases for the main BCH binaries.
+
+```shell
+echo "alias bcashd='bcashd -conf=$HOME/.bitcoin-cash/bitcoin-cash.conf -datadir=$HOME/.bitcoin-cash'" | tee -a .profile
+
+echo "alias bcash-cli='bcash-cli -conf=$HOME/.bitcoin-cash/bitcoin-cash.conf'" | tee -a .profile
+```
+
+And to load changes type
+```shell
+source .profile
+```
+
+### Start the node
+
+```shell
+bcashd
+```
+
+### Verify node is started
+
+```shell
+bcash-cli getblockchaininfo
+```
+
+You should see a response like this:
+
+```json
+{
+  "chain": "regtest",
+  "blocks": 0,
+  "headers": 0,
+  "bestblockhash": "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206",
+  "difficulty": 4.656542373906925e-10,
+  "mediantime": 1296688602,
+  "verificationprogress": 1,
+  "initialblockdownload": true,
+  "chainwork": "0000000000000000000000000000000000000000000000000000000000000002",
+  "size_on_disk": 293,
+  "pruned": false,
+  "warnings": ""
+}
+```
+
+### Create new address for your wallet
+
+```shell
+bcash-cli getnewaddress
+```
+
+### Mine blocks
+
+```shell
+bcash-cli generatetoaddress 110 $YOUR_ADDR$
+```
+
+110 is the number of the mined blocks, this may be an arbitrary number. Keep in mind, that Bitcoin has a maturity period of 100 blocks, this means that any mined tokens will be reflected in your balance only after 100 blocks.
+
+### Verify the blocks are mined
+
+```shell
+bcash-cli getblockcount
+```
+
+### Check the balance of your node
+
+```shell
+bcash-cli getbalance
+```
