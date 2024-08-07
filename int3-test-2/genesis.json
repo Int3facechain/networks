@@ -1,28 +1,15 @@
 {
-  "genesis_time": "2024-07-31T16:31:13.987102062Z",
+  "app_name": "int3face",
+  "app_version": "",
+  "genesis_time": "2024-08-06T13:35:36.498318983Z",
   "chain_id": "int3-test-2",
-  "initial_height": "1",
-  "consensus_params": {
-    "block": {
-      "max_bytes": "5242880",
-      "max_gas": "6000000"
-    },
-    "evidence": {
-      "max_age_num_blocks": "403200",
-      "max_age_duration": "1209600000000000",
-      "max_bytes": "1048576"
-    },
-    "validator": {
-      "pub_key_types": [
-        "ed25519"
-      ]
-    },
-    "version": {
-      "app": "1"
-    }
-  },
-  "app_hash": "",
+  "initial_height": 1,
+  "app_hash": null,
   "app_state": {
+    "07-tendermint": null,
+    "08-wasm": {
+      "contracts": []
+    },
     "auth": {
       "params": {
         "max_memo_characters": "256",
@@ -34,21 +21,21 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "int31m8huzltqv8ny70cjl7v5y7exvydw3cl5yu28gy",
+          "address": "int31epmhax388z673rr6whtc762jrcfmu3hte0mgty",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "int31c2kxmlnt5rmt3q39gzr94q00evx5k9gy2de93d",
+          "address": "int3104s3nrdvh2d33p53gyzy5sczcep2dkmagpvhrk",
           "pub_key": null,
           "account_number": "1",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "int31jpdpag74zcr6grzgshm5070r9unc08k3kgktgg",
+          "address": "int31ah6xtkth2hkmwq3hee2k7hzz63jnudea7zks67",
           "pub_key": null,
           "account_number": "2",
           "sequence": "0"
@@ -62,7 +49,7 @@
       },
       "balances": [
         {
-          "address": "int31m8huzltqv8ny70cjl7v5y7exvydw3cl5yu28gy",
+          "address": "int31epmhax388z673rr6whtc762jrcfmu3hte0mgty",
           "coins": [
             {
               "denom": "stake",
@@ -75,7 +62,7 @@
           ]
         },
         {
-          "address": "int31c2kxmlnt5rmt3q39gzr94q00evx5k9gy2de93d",
+          "address": "int3104s3nrdvh2d33p53gyzy5sczcep2dkmagpvhrk",
           "coins": [
             {
               "denom": "stake",
@@ -88,7 +75,7 @@
           ]
         },
         {
-          "address": "int31jpdpag74zcr6grzgshm5070r9unc08k3kgktgg",
+          "address": "int31ah6xtkth2hkmwq3hee2k7hzz63jnudea7zks67",
           "coins": [
             {
               "denom": "stake",
@@ -108,9 +95,9 @@
     "bridge": {
       "params": {
         "signers": [
-          "int31jpdpag74zcr6grzgshm5070r9unc08k3kgktgg",
-          "int31c2kxmlnt5rmt3q39gzr94q00evx5k9gy2de93d",
-          "int31m8huzltqv8ny70cjl7v5y7exvydw3cl5yu28gy"
+          "int31ah6xtkth2hkmwq3hee2k7hzz63jnudea7zks67",
+          "int3104s3nrdvh2d33p53gyzy5sczcep2dkmagpvhrk",
+          "int31epmhax388z673rr6whtc762jrcfmu3hte0mgty"
         ],
         "assets": [
           {
@@ -170,7 +157,6 @@
       "index": "1",
       "owners": []
     },
-    "consensus": null,
     "crisis": {
       "constant_fee": {
         "denom": "uint3",
@@ -196,6 +182,9 @@
       "delegator_starting_infos": [],
       "validator_slash_events": []
     },
+    "evidence": {
+      "evidence": []
+    },
     "genutil": {
       "gen_txs": [
         {
@@ -204,7 +193,7 @@
               {
                 "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
                 "description": {
-                  "moniker": "int3face-node-114",
+                  "moniker": "int3face-node-30",
                   "identity": "",
                   "website": "https://int3face.io/",
                   "security_contact": "",
@@ -216,11 +205,11 @@
                   "max_change_rate": "0.010000000000000000"
                 },
                 "min_self_delegation": "1",
-                "delegator_address": "int31c2kxmlnt5rmt3q39gzr94q00evx5k9gy2de93d",
-                "validator_address": "int3valoper1c2kxmlnt5rmt3q39gzr94q00evx5k9gy8m5j7z",
+                "delegator_address": "",
+                "validator_address": "int3valoper1ah6xtkth2hkmwq3hee2k7hzz63jnudean5m843",
                 "pubkey": {
                   "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "edF1L2MfvDE9SlcA9d39GUF7XGsG+ptWZ1wF40fLwW8="
+                  "key": "agHAU00iTicdlpZI1jDFn+Ez+6JsuC2C94UgBRSe+Y8="
                 },
                 "value": {
                   "denom": "uint3",
@@ -228,7 +217,7 @@
                 }
               }
             ],
-            "memo": "8450e5b4481c13921ba786f6187f209911d4388e@65.108.86.114:26656",
+            "memo": "05ab5550947168e740377c093893434b9ce0aca9@65.109.1.30:26656",
             "timeout_height": "0",
             "extension_options": [],
             "non_critical_extension_options": []
@@ -238,7 +227,7 @@
               {
                 "public_key": {
                   "@type": "/cosmos.crypto.secp256k1.PubKey",
-                  "key": "A4D2CAwwTpkIsDlnoOECCgaA/Q6mx0cjXmAgXi7tBQOw"
+                  "key": "AoLZoDxjJTu4KCA+KJ4wN2WTB/eMhJFJaDfuQ3LU6Rje"
                 },
                 "mode_info": {
                   "single": {
@@ -257,7 +246,69 @@
             "tip": null
           },
           "signatures": [
-            "YT9I94Apteq6eeVLSbCXUL4GeAjRm/EE6mCHJ69PPO4lMH+BERQWRDA8otyrn/6A0D34G1xy5x0ZTMMnquc9mQ=="
+            "McMH432ArqVYxc4bGeUlYFogSuMlfQBH8uNBsYVQgecmBqWMJcTMV24VloZKYnHC1FwB8f0cLJX3hqU1UAOctw=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "int3face-node-114",
+                  "identity": "",
+                  "website": "https://int3face.io/",
+                  "security_contact": "",
+                  "details": "Int3face Lover"
+                },
+                "commission": {
+                  "rate": "0.100000000000000000",
+                  "max_rate": "0.200000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "1",
+                "delegator_address": "",
+                "validator_address": "int3valoper104s3nrdvh2d33p53gyzy5sczcep2dkma9hpqve",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "KSBCr2BePgIn/dWFxSNHHRul3yQY2JrjIiOERH+7nOA="
+                },
+                "value": {
+                  "denom": "uint3",
+                  "amount": "1000000"
+                }
+              }
+            ],
+            "memo": "35f2b39d451a4bdbbe687bd233037b83f2a35cea@65.108.86.114:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "Awj4ZPp3chFjoro8CcXOgqW8gTAuf9wuQO83hhvjKWj0"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            },
+            "tip": null
+          },
+          "signatures": [
+            "qgDyoH38mBOOHJDeRi33GBH+ZROppo2DDzFgOJXc2iZha0fE81fL5UOqHdyBvjmljK4REN+MkEzd683ljPOYRw=="
           ]
         },
         {
@@ -278,11 +329,11 @@
                   "max_change_rate": "0.010000000000000000"
                 },
                 "min_self_delegation": "1",
-                "delegator_address": "int31m8huzltqv8ny70cjl7v5y7exvydw3cl5yu28gy",
-                "validator_address": "int3valoper1m8huzltqv8ny70cjl7v5y7exvydw3cl5f28s8t",
+                "delegator_address": "",
+                "validator_address": "int3valoper1epmhax388z673rr6whtc762jrcfmu3ht5eklyt",
                 "pubkey": {
                   "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "9plZHHDfVRnudkN+FTtH/RMnz7dLoPdZc/Mg5YDyoKQ="
+                  "key": "FU3Ate9FhWQI2iIhn/wERd35txuQwEbKCaKlTaOEv6M="
                 },
                 "value": {
                   "denom": "uint3",
@@ -290,7 +341,7 @@
                 }
               }
             ],
-            "memo": "f78d9bbf7622b7fb2fe4ac39bb5c909d971f74e7@5.78.111.245:26656",
+            "memo": "c08c24b120c27be437ac02a419b22f9cd3a02b28@5.78.111.245:26656",
             "timeout_height": "0",
             "extension_options": [],
             "non_critical_extension_options": []
@@ -300,7 +351,7 @@
               {
                 "public_key": {
                   "@type": "/cosmos.crypto.secp256k1.PubKey",
-                  "key": "A3nupgfAWjiiAFr7zBUpsNsbbmaF9L2Faf2769RLtzxo"
+                  "key": "ArxbbWfR5P/AiAeP7ZduR84sw7laCqSqLV0sq7s0m5l2"
                 },
                 "mode_info": {
                   "single": {
@@ -319,69 +370,7 @@
             "tip": null
           },
           "signatures": [
-            "wCxJlxj9+8ot1LRfwYRWjBS/pr4m0LKs6fmiI/pbrqoOYdRvAohKVtcjGC9D0ZM9djHYDeedo9bmUBHaoA9f7w=="
-          ]
-        },
-        {
-          "body": {
-            "messages": [
-              {
-                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
-                "description": {
-                  "moniker": "int3face-node-30",
-                  "identity": "",
-                  "website": "https://int3face.io/",
-                  "security_contact": "",
-                  "details": "Int3face Lover"
-                },
-                "commission": {
-                  "rate": "0.100000000000000000",
-                  "max_rate": "0.200000000000000000",
-                  "max_change_rate": "0.010000000000000000"
-                },
-                "min_self_delegation": "1",
-                "delegator_address": "int31jpdpag74zcr6grzgshm5070r9unc08k3kgktgg",
-                "validator_address": "int3valoper1jpdpag74zcr6grzgshm5070r9unc08k3m7mu88",
-                "pubkey": {
-                  "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "PrOC1SvDYKptRKjA5L1p/NzMLjsuCi/C4w2B2Vg4pOo="
-                },
-                "value": {
-                  "denom": "uint3",
-                  "amount": "1000000"
-                }
-              }
-            ],
-            "memo": "0f3b47100acf99cbe3e235563e67f297c5ea6781@65.109.1.30:26656",
-            "timeout_height": "0",
-            "extension_options": [],
-            "non_critical_extension_options": []
-          },
-          "auth_info": {
-            "signer_infos": [
-              {
-                "public_key": {
-                  "@type": "/cosmos.crypto.secp256k1.PubKey",
-                  "key": "A6Qe7sjIOLTXP+Mv113gUCfKyJ/cUx9Co5M76csOTOD4"
-                },
-                "mode_info": {
-                  "single": {
-                    "mode": "SIGN_MODE_DIRECT"
-                  }
-                },
-                "sequence": "0"
-              }
-            ],
-            "fee": {
-              "amount": [],
-              "gas_limit": "200000",
-              "payer": "",
-              "granter": ""
-            },
-            "tip": null
-          },
-          "signatures": [
-            "66XquAhbmmW05Faw/taisxVHilcqxlzCzAZC2v8oiacICDh3DMcSm8et5GzYSAvGeEjgzT0fjC12OwKUsE0lYQ=="
+            "dbhj4kh3SSgd1d7liqTzk4HsFwsyVNpxPe4tZxU3K9c36w3onXfNeg/QgLNzeRha4ex12vMNbXvapJsdAPFwMg=="
           ]
         }
       ]
@@ -407,6 +396,8 @@
         "threshold": "0.500000000000000000",
         "veto_threshold": "0.334000000000000000",
         "min_initial_deposit_ratio": "0.000000000000000000",
+        "proposal_cancel_ratio": "0.500000000000000000",
+        "proposal_cancel_dest": "",
         "expedited_voting_period": "100s",
         "expedited_threshold": "0.667000000000000000",
         "expedited_min_deposit": [
@@ -417,7 +408,79 @@
         ],
         "burn_vote_quorum": false,
         "burn_proposal_deposit_prevote": false,
-        "burn_vote_veto": true
+        "burn_vote_veto": true,
+        "min_deposit_ratio": "0.010000000000000000"
+      },
+      "constitution": ""
+    },
+    "ibc": {
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "params": {
+          "allowed_clients": [
+            "*"
+          ]
+        },
+        "create_localhost": false,
+        "next_client_sequence": "0"
+      },
+      "connection_genesis": {
+        "connections": [],
+        "client_connection_paths": [],
+        "next_connection_sequence": "0",
+        "params": {
+          "max_expected_time_per_block": "30000000000"
+        }
+      },
+      "channel_genesis": {
+        "channels": [],
+        "acknowledgements": [],
+        "commitments": [],
+        "receipts": [],
+        "send_sequences": [],
+        "recv_sequences": [],
+        "ack_sequences": [],
+        "next_channel_sequence": "0",
+        "params": {
+          "upgrade_timeout": {
+            "height": {
+              "revision_number": "0",
+              "revision_height": "0"
+            },
+            "timestamp": "600000000000"
+          }
+        }
+      }
+    },
+    "ibchooks": {},
+    "interchainaccounts": {
+      "controller_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "ports": [],
+        "params": {
+          "controller_enabled": true
+        }
+      },
+      "host_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "port": "icahost",
+        "params": {
+          "host_enabled": true,
+          "allow_messages": [
+            "*"
+          ]
+        }
+      }
+    },
+    "interchainquery": {
+      "host_port": "icqhost",
+      "params": {
+        "host_enabled": true,
+        "allow_queries": []
       }
     },
     "mint": {
@@ -434,7 +497,12 @@
         "blocks_per_year": "6311520"
       }
     },
-    "params": null,
+    "packetfowardmiddleware": {
+      "params": {
+        "fee_percentage": "0.000000000000000000"
+      },
+      "in_flight_packets": {}
+    },
     "slashing": {
       "params": {
         "signed_blocks_window": "30000",
@@ -470,6 +538,39 @@
       },
       "factory_denoms": []
     },
+    "transfer": {
+      "port_id": "transfer",
+      "denom_traces": [],
+      "params": {
+        "send_enabled": true,
+        "receive_enabled": true
+      },
+      "total_escrowed": []
+    },
     "upgrade": {}
+  },
+  "consensus": {
+    "params": {
+      "block": {
+        "max_bytes": "22020096",
+        "max_gas": "-1"
+      },
+      "evidence": {
+        "max_age_num_blocks": "100000",
+        "max_age_duration": "172800000000000",
+        "max_bytes": "1048576"
+      },
+      "validator": {
+        "pub_key_types": [
+          "ed25519"
+        ]
+      },
+      "version": {
+        "app": "0"
+      },
+      "abci": {
+        "vote_extensions_enable_height": "0"
+      }
+    }
   }
 }

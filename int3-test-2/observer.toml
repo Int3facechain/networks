@@ -39,9 +39,9 @@ max-utxos-to-spend = 10                                                       # 
 
 [tss]
 bootstrap-peers = [
-    "/ip4/65.109.1.30/tcp/16666/p2p/16Uiu2HAmPhea2DNTfWbfuN1idpPnwDH6MuxwYWNogLz8zybbgvaK", # 1
-    "/ip4/65.108.86.114/tcp/16666/p2p/16Uiu2HAmMLQ8Lo7SjwGPLbPpDs2T3TemXggCQd74oUci6etsfPT5", # 2
-    "/ip4/5.78.111.245/tcp/16666/p2p/16Uiu2HAmLrxk7EgRQsEh1WKwHMqwRTdyjP1HurLtus9egUeqAuFd", # 3
+    "/ip4/65.109.1.30/tcp/16666/p2p/16Uiu2HAm4ETT4eqnU2gPHFST34yfz7BCTviLUvEsoDAbGhKfqkF7", # 1
+    "/ip4/65.108.86.114/tcp/16666/p2p/16Uiu2HAmDG1HyeZc12AGTkrBGCFVmQoUEzNSxCLAgXadQiXJ4yJs", # 2
+    "/ip4/5.78.111.245/tcp/16666/p2p/16Uiu2HAm86wV9BD5iXy434XiCRjhPgXgTdjY2Qfqor8vrWGwJNwX", # 3
 ] # the peers of the P2P network used to set up the connection
 party-port = "16666" # the party's port
 rendezvous = "Int3face" # the "meet me here" point
