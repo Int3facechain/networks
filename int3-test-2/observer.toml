@@ -37,6 +37,19 @@ signed-txs-cache-size = 100                                                   # 
 max-sats-per-vbyte = 1024                                                     # Max fee to pay per a vbyte
 max-utxos-to-spend = 10                                                       # Max amount of UTXOs to spend in a single transaction
 
+[bitcoin-cash]
+rpc-url = "http://127.0.0.1:18323"
+rpc-user = "bcashrpc"
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9"
+last-observed-height = 0
+fetch-interval = "30s"
+min-outbound-transfer-amount = "1"
+denom = "bch"
+observed-blocks-cache-size = 30
+signed-txs-cache-size = 100
+max-sats-per-vbyte = 1024
+max-utxos-to-spend = 10
+
 [tss]
 bootstrap-peers = [
     "/ip4/65.109.1.30/tcp/16666/p2p/16Uiu2HAm4ETT4eqnU2gPHFST34yfz7BCTviLUvEsoDAbGhKfqkF7", # 1
