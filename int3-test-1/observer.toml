@@ -50,6 +50,19 @@ signed-txs-cache-size = 100
 max-sats-per-vbyte = 1024
 max-utxos-to-spend = 10
 
+[litecoin]
+rpc-url = "http://127.0.0.1:18112"
+rpc-user = "litecoinrpc"
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9"
+last-observed-height = 0
+fetch-interval = "30s"
+min-outbound-transfer-amount = "1"
+denom = "ltc"
+observed-blocks-cache-size = 30
+signed-txs-cache-size = 100
+max-sats-per-vbyte = 1024
+max-utxos-to-spend = 10
+
 [tss]
 bootstrap-peers = [
     "/ip4/188.245.39.76/tcp/16666/p2p/16Uiu2HAmCubXKhsJQHsx8UJ3t95CrpJ2o5PRwUaFX2gwpqiBvHkg", # 1
