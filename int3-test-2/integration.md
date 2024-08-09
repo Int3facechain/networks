@@ -750,7 +750,7 @@ mkdir ~/.litecoin
 ### Download LTC configuration
 
 ```shell
-wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/litecoin.conf --output-document $HOME/.litecoin/litecoin.conf
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-2/litecoin.conf --output-document $HOME/.litecoin/litecoin.conf
 ```
 
 ### Start the node
