@@ -50,11 +50,24 @@ signed-txs-cache-size = 100
 max-sats-per-vbyte = 1024
 max-utxos-to-spend = 10
 
+[litecoin]
+rpc-url = "http://127.0.0.1:18112"
+rpc-user = "litecoinrpc"
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9"
+last-observed-height = 0
+fetch-interval = "30s"
+min-outbound-transfer-amount = "1"
+denom = "ltc"
+observed-blocks-cache-size = 30
+signed-txs-cache-size = 100
+max-sats-per-vbyte = 1024
+max-utxos-to-spend = 10
+
 [tss]
 bootstrap-peers = [
-    "/ip4/65.109.1.30/tcp/16666/p2p/16Uiu2HAm4ETT4eqnU2gPHFST34yfz7BCTviLUvEsoDAbGhKfqkF7", # 1
+    "/ip4/65.109.1.30/tcp/16666/p2p/16Uiu2HAm4ETT4eqnU2gPHFST34yfz7BCTviLUvEsoDAbGhKfqkF7",   # 1
     "/ip4/65.108.86.114/tcp/16666/p2p/16Uiu2HAmDG1HyeZc12AGTkrBGCFVmQoUEzNSxCLAgXadQiXJ4yJs", # 2
-    "/ip4/5.78.111.245/tcp/16666/p2p/16Uiu2HAm86wV9BD5iXy434XiCRjhPgXgTdjY2Qfqor8vrWGwJNwX", # 3
+    "/ip4/5.78.111.245/tcp/16666/p2p/16Uiu2HAm86wV9BD5iXy434XiCRjhPgXgTdjY2Qfqor8vrWGwJNwX",  # 3
 ] # the peers of the P2P network used to set up the connection
 party-port = "16666" # the party's port
 rendezvous = "Int3face" # the "meet me here" point
@@ -65,5 +78,4 @@ pre-param-timeout = "1m0s" # the LocalPreParams generations timeout
 
 [monitoring]
 enabled = false # Enable or disable monitoring HTTP server. The list of metrics is presented at https://github.com/Int3facechain/architecture/blob/main/ADR/adr-006-metrics.md
-port = "27727" # TCP port to expose monitoring HTTP server
-
+port = "27727"  # TCP port to expose monitoring HTTP server

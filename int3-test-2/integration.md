@@ -715,3 +715,171 @@ bcash-cli getblockcount
 ```shell
 bcash-cli getbalance
 ```
+
+## LTC Node
+
+### Download binaries
+
+```shell
+wget https://download.litecoin.org/litecoin-0.21.3/linux/litecoin-0.21.3-x86_64-linux-gnu.tar.gz
+tar -xzvf litecoin-0.21.3-x86_64-linux-gnu.tar.gz
+mv litecoin-0.21.3/bin/* ~/bin/
+
+rm -rf litecoin-0.21.3 litecoin-0.21.3-x86_64-linux-gnu.tar.gz
+```
+
+`bin` folder is a folder added to the `PATH` environment variable. However, you can use an arbitrary folder to store the binaries.
+
+If you also want to use the `bin` folder, one can be added to the `PATH` using the following command:
+
+```shell
+echo 'export PATH=$PATH:~/bin' | tee -a .profile
+```
+
+And to load changes type
+```shell
+source .profile
+```
+
+### Create home dir
+
+```shell
+mkdir ~/.litecoin
+```
+
+### Download LTC configuration
+
+```shell
+wget https://raw.githubusercontent.com/Int3facechain/networks/main/int3-test-1/litecoin.conf --output-document $HOME/.litecoin/litecoin.conf
+```
+
+### Start the node
+
+```shell
+litecoind
+```
+
+### Verify node is started
+
+```shell
+litecoin-cli getblockchaininfo
+```
+
+You should see a response like this:
+
+```json
+{
+  "chain": "regtest",
+  "blocks": 0,
+  "headers": 0,
+  "bestblockhash": "530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9",
+  "difficulty": 4.656542373906925e-10,
+  "mediantime": 1296688602,
+  "verificationprogress": 1,
+  "initialblockdownload": true,
+  "chainwork": "0000000000000000000000000000000000000000000000000000000000000002",
+  "size_on_disk": 288,
+  "pruned": false,
+  "softforks": {
+    "bip34": {
+      "type": "buried",
+      "active": false,
+      "height": 500
+    },
+    "bip66": {
+      "type": "buried",
+      "active": false,
+      "height": 1251
+    },
+    "bip65": {
+      "type": "buried",
+      "active": false,
+      "height": 1351
+    },
+    "csv": {
+      "type": "buried",
+      "active": false,
+      "height": 432
+    },
+    "segwit": {
+      "type": "buried",
+      "active": true,
+      "height": 0
+    },
+    "testdummy": {
+      "type": "bip9",
+      "bip9": {
+        "status": "defined",
+        "start_time": 0,
+        "timeout": 9223372036854775807,
+        "since": 0
+      },
+      "active": false
+    },
+    "taproot": {
+      "type": "bip9",
+      "bip9": {
+        "status": "active",
+        "start_time": -1,
+        "timeout": 9223372036854775807,
+        "since": 0
+      },
+      "height": 0,
+      "active": true
+    },
+    "mweb": {
+      "type": "bip9",
+      "bip9": {
+        "status": "defined",
+        "start_time": 1601450001,
+        "timeout": 9223372036854775807,
+        "since": 0
+      },
+      "active": false
+    }
+  },
+  "warnings": ""
+}
+```
+
+### Create new wallet
+
+```shell
+litecoin-cli createwallet "observer" false false "" false true true 
+```
+
+Args after the wallet name:
+1. Enables use of the private keys
+2. Init keys and HD seed
+3. Password
+4. Keep track of coin reuse
+5. Create native descriptors
+6. Load this wallet on startup
+
+Use the name "observer" for the wallet, as it's required by the observer node
+
+### Create new address for your wallet
+
+```shell
+litecoin-cli getnewaddress
+```
+
+### Mine blocks
+
+```shell
+litecoin-cli generatetoaddress 110 $YOUR_ADDR
+```
+
+110 is the number of the mined blocks, this may be an arbitrary number. Keep in mind, that Litecoin has a maturity period of 100 blocks, this means that any mined tokens will be reflected in your balance only after 100 blocks.
+
+### Verify the blocks are mined
+
+```shell
+litecoin-cli getblockcount
+```
+
+### Check the balance of your node
+
+```shell
+litecoin-cli getbalance
+```
