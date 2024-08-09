@@ -1,0 +1,81 @@
+keyring-backend = "os"          # Name of the keyring backend (os|file|kwallet|pass|test)
+keyring-folder = "~/.int3faced" # Path to the keyring folder
+mode = "regtest"                # Observer execution mode (mainnet|testnet)
+send-period = "1s"              # Interval for observer to process Tx queue
+
+[int3face]
+chain-id = "int3-test-2"
+grpc-url = "127.0.0.1:9090"
+grpc-disable-tls = true
+rpc-url = "tcp://127.0.0.1:26657"
+min-outbound-transfer-amount = "1"
+health-check-period = "5s"
+
+[bitcoin]
+rpc-url = "http://127.0.0.1:18343"                                            # Url for the chain specific RPC client
+rpc-user = "bitcoinrpc"                                                       # Username for the RPC connection authorization
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9" # Password for the RPC connection authorization
+last-observed-height = 0                                                      # Last observed block height number, if not set will be requested from the x/bridge
+fetch-interval = "30s"                                                        # Interval to scan chain blocks
+min-outbound-transfer-amount = "1"                                            # Minimal amount of tokens to observe transaction
+denom = "btc"                                                                 # Token denom
+observed-block-cache-size = 30                                                # Amount of observed blocks to keep in memory
+signed-txs-cache-size = 100                                                   # Amount of signed txs to keep in memory
+max-sats-per-vbyte = 1024                                                     # Max fee to pay per a vbyte
+max-utxos-to-spend = 10                                                       # Max amount of UTXOs to spend in a single transaction
+
+[dogecoin]
+rpc-url = "http://127.0.0.1:18332"                                            # Url for the chain specific RPC client
+rpc-user = "dogecoinrpc"                                                      # Username for the RPC connection authorization
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9" # Password for the RPC connection authorization
+last-observed-height = 0                                                      # Last observed block height number, if not set will be requested from the x/bridge
+fetch-interval = "30s"                                                        # Interval to scan chain blocks
+min-outbound-transfer-amount = "1"                                            # Minimal amount of tokens to observe transaction
+denom = "doge"                                                                # Token denom
+observed-blocks-cache-size = 30                                               # Amount of observed blocks to keep in memory
+signed-txs-cache-size = 100                                                   # Amount of signed txs to keep in memory
+max-sats-per-vbyte = 1024                                                     # Max fee to pay per a vbyte
+max-utxos-to-spend = 10                                                       # Max amount of UTXOs to spend in a single transaction
+
+[bitcoin-cash]
+rpc-url = "http://127.0.0.1:18323"
+rpc-user = "bcashrpc"
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9"
+last-observed-height = 0
+fetch-interval = "30s"
+min-outbound-transfer-amount = "1"
+denom = "bch"
+observed-blocks-cache-size = 30
+signed-txs-cache-size = 100
+max-sats-per-vbyte = 1024
+max-utxos-to-spend = 10
+
+[litecoin]
+rpc-url = "http://127.0.0.1:18112"
+rpc-user = "litecoinrpc"
+rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9"
+last-observed-height = 0
+fetch-interval = "30s"
+min-outbound-transfer-amount = "1"
+denom = "ltc"
+observed-blocks-cache-size = 30
+signed-txs-cache-size = 100
+max-sats-per-vbyte = 1024
+max-utxos-to-spend = 10
+
+[tss]
+bootstrap-peers = [
+    "/ip4/65.109.1.30/tcp/16666/p2p/16Uiu2HAm4ETT4eqnU2gPHFST34yfz7BCTviLUvEsoDAbGhKfqkF7",   # 1
+    "/ip4/65.108.86.114/tcp/16666/p2p/16Uiu2HAmDG1HyeZc12AGTkrBGCFVmQoUEzNSxCLAgXadQiXJ4yJs", # 2
+    "/ip4/5.78.111.245/tcp/16666/p2p/16Uiu2HAm86wV9BD5iXy434XiCRjhPgXgTdjY2Qfqor8vrWGwJNwX",  # 3
+] # the peers of the P2P network used to set up the connection
+party-port = "16666" # the party's port
+rendezvous = "Int3face" # the "meet me here" point
+party-timeout = "5m0s" # how long do we wait for the party to form
+key-gen-timeout = "5m0s" # how long do we wait the keygen parties to pass messages along
+key-sign-timeout = "5m0s" # how long do we wait keysign
+pre-param-timeout = "1m0s" # the LocalPreParams generations timeout
+
+[monitoring]
+enabled = false # Enable or disable monitoring HTTP server. The list of metrics is presented at https://github.com/Int3facechain/architecture/blob/main/ADR/adr-006-metrics.md
+port = "27727"  # TCP port to expose monitoring HTTP server
