@@ -1,0 +1,62 @@
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+        "description": {
+          "moniker": "gustave",
+          "identity": "",
+          "website": "https://int3face.io/",
+          "security_contact": "",
+          "details": "Genesis transaction"
+        },
+        "commission": {
+          "rate": "0.100000000000000000",
+          "max_rate": "0.200000000000000000",
+          "max_change_rate": "0.010000000000000000"
+        },
+        "min_self_delegation": "1",
+        "delegator_address": "",
+        "validator_address": "int3valoper1tchexuwuvxahmjnejymft7l8lzlj555xwrw6lf",
+        "pubkey": {
+          "@type": "/cosmos.crypto.ed25519.PubKey",
+          "key": "5Wzm2lMM0Mjj9xjjzIA/FJOO7XxCn4VWlIIyklSBVmo="
+        },
+        "value": {
+          "denom": "uint3",
+          "amount": "125000000000000"
+        }
+      }
+    ],
+    "memo": "59fbd152c68862521b30489c9b51b857669ac90d@23.88.122.33:26656",
+    "timeout_height": "0",
+    "extension_options": [],
+    "non_critical_extension_options": []
+  },
+  "auth_info": {
+    "signer_infos": [
+      {
+        "public_key": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "AjOrm1eSoEYyLzJmZUFLvvs9jFlMb/3VGRL/IevDWH7n"
+        },
+        "mode_info": {
+          "single": {
+            "mode": "SIGN_MODE_DIRECT"
+          }
+        },
+        "sequence": "0"
+      }
+    ],
+    "fee": {
+      "amount": [],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    },
+    "tip": null
+  },
+  "signatures": [
+    "awXkIHzxBu5U9p6Eo0rr3awMH7NUm61X/Dgsxdss/WU8SBo1SBQaLqT2DK5snMb4EK+6Tiyl2v/ZzJhdpcJo4A=="
+  ]
+}
