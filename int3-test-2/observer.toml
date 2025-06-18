@@ -1,67 +1,84 @@
 keyring-backend = "os"          # Name of the keyring backend (os|file|kwallet|pass|test)
 keyring-folder = "~/.int3faced" # Path to the keyring folder
-mode = "regtest"                # Observer execution mode (mainnet|testnet)
+mode = "regtest"                # Observer execution mode (mainnet|testnet|regtest)
 send-period = "1s"              # Interval for observer to process Tx queue
+max-retry-count = 0             # Maximum retries
+secrets-file = "./secrets.toml" # File with secrets - rpc accounts, contract details
 
 [int3face]
-chain-id = "int3-test-2"
-grpc-url = "127.0.0.1:9090"
-grpc-disable-tls = true
-rpc-url = "tcp://127.0.0.1:26657"
-min-outbound-transfer-amount = "1"
-health-check-period = "5s"
+chain-id             = "int3-test-2"
+grpc-url             = "127.0.0.1:9090"
+grpc-disable-tls     = true
+rpc-url              = "tcp://127.0.0.1:26657"
+health-check-period  = "5s"
+
+[api-server]
+grpc-port     = 16090
+http-enabled  = false
+http-port     = 16091
 
 [bitcoin]
 rpc-url = "http://127.0.0.1:18343"                                            # Url for the chain specific RPC client
-rpc-user = "bitcoinrpc"                                                       # Username for the RPC connection authorization
-rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9" # Password for the RPC connection authorization
+rpc-api-header = ""
 last-observed-height = 0                                                      # Last observed block height number, if not set will be requested from the x/bridge
 fetch-interval = "30s"                                                        # Interval to scan chain blocks
-min-outbound-transfer-amount = "1"                                            # Minimal amount of tokens to observe transaction
 denom = "btc"                                                                 # Token denom
 observed-block-cache-size = 30                                                # Amount of observed blocks to keep in memory
 signed-txs-cache-size = 100                                                   # Amount of signed txs to keep in memory
-max-sats-per-vbyte = 1024                                                     # Max fee to pay per a vbyte
-max-utxos-to-spend = 10                                                       # Max amount of UTXOs to spend in a single transaction
 
 [dogecoin]
 rpc-url = "http://127.0.0.1:18332"                                            # Url for the chain specific RPC client
-rpc-user = "dogecoinrpc"                                                      # Username for the RPC connection authorization
-rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9" # Password for the RPC connection authorization
 last-observed-height = 0                                                      # Last observed block height number, if not set will be requested from the x/bridge
 fetch-interval = "30s"                                                        # Interval to scan chain blocks
-min-outbound-transfer-amount = "1"                                            # Minimal amount of tokens to observe transaction
 denom = "doge"                                                                # Token denom
 observed-blocks-cache-size = 30                                               # Amount of observed blocks to keep in memory
 signed-txs-cache-size = 100                                                   # Amount of signed txs to keep in memory
-max-sats-per-vbyte = 1024                                                     # Max fee to pay per a vbyte
-max-utxos-to-spend = 10                                                       # Max amount of UTXOs to spend in a single transaction
 
 [bitcoin-cash]
 rpc-url = "http://127.0.0.1:18323"
-rpc-user = "bcashrpc"
-rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9"
 last-observed-height = 0
 fetch-interval = "30s"
-min-outbound-transfer-amount = "1"
 denom = "bch"
 observed-blocks-cache-size = 30
 signed-txs-cache-size = 100
-max-sats-per-vbyte = 1024
-max-utxos-to-spend = 10
 
 [litecoin]
 rpc-url = "http://127.0.0.1:18112"
-rpc-user = "litecoinrpc"
-rpc-pass = "CCwXB6IxXcYMlBd6w812yfmiahxYBnlR0KLlvMIjgOrGq9eqgj9WmdeTCSDVo4w9"
 last-observed-height = 0
 fetch-interval = "30s"
-min-outbound-transfer-amount = "1"
 denom = "ltc"
 observed-blocks-cache-size = 30
 signed-txs-cache-size = 100
-max-sats-per-vbyte = 1024
-max-utxos-to-spend = 10
+
+[ton]
+contract-address  = "EQBhbAx2OwLseqKiAfa0E398IuwUJN4ZpbeGHDJ9PCJDD7JI" # Bridge contract address on TON
+last-observed-lt  = 34060140000001 # Last observed logical-time
+response-timeout  = "30s" # Max wait for TON RPC
+
+[solana]
+endpoint            = "https://api.devnet.solana.com"
+contract-address    = "Dwq5KPSzvQozX3dUKpQvFqyKETFTjxE5drL2hJ5Z1x49"
+tx-fetch-interval   = "10s"
+last-tx-scanned     = ""
+ntt-claim-enabled   = true
+ntt-claim-timeout   = "10m0s"
+
+[[solana.ntt-claimer]]
+chain-id                   = "base"
+sol-chain-id               = 1
+eth-chain-id               = 84532
+receive-message-selector   = "f953cec7"
+eth-rpc-url                = "https://sepolia.base.org"
+eth-max-gas-limit          = 500000
+eth-max-gas-price          = 300000
+wormhole-rpc-url           = "https://api.testnet.wormscan.io"
+
+[xrpl]
+endpoint            = "https://s.altnet.rippletest.net:51234/"
+fetch-interval      = "30s"
+max-tx-batch-size   = 10
+max-scanning-range  = 100
+last-observed-height = 8110435
 
 [tss]
 bootstrap-peers = [
